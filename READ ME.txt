@@ -1,0 +1,72 @@
+Digital Clock in Verilog
+
+This project simulates a 24-hour digital clock using Verilog. The clock starts from a user-defined initial time and counts every second, displaying the time in HH:MM:SS format.
+
+Files Included:
+
+Digital_Clock.v – Verilog module for the digital clock
+
+Digital_Clock_tb.v – Testbench for simulating the clock
+
+run_digital_clock.tcl – TCL script to simulate the clock for 1 hour
+
+README.txt – Project information
+
+Features:
+
+24-hour format (00:00:00 to 23:59:59)
+
+Custom initial time using inputs
+
+Real-time simulation for 1 hour
+
+Time printed every second in terminal
+
+How to Run:
+
+Open your Verilog simulator (e.g., ModelSim).
+
+Compile the Verilog files:
+
+nginx
+Copy
+Edit
+vlog Digital_Clock.v Digital_Clock_tb.v
+Run the testbench using the TCL script:
+
+pgsql
+Copy
+Edit
+vsim -c work.Digital_Clock_tb -do run_digital_clock.tcl
+This will simulate the clock for 3600 seconds (1 hour) with output printed every second.
+
+Edit Initial Time:
+
+In Digital_Clock_tb.v, change these lines to set your desired start time:
+
+verilog
+Copy
+Edit
+init_hours = 2;
+init_minutes = 52;
+init_seconds = 0;
+Modify Simulation Duration:
+
+In run_digital_clock.tcl, update this line to change duration:
+
+tcl
+Copy
+Edit
+for {set i 0} {$i < 3600} {incr i} {
+Change 3600 to however many seconds you want the simulation to run.
+
+Example Output (in terminal):
+
+makefile
+Copy
+Edit
+02:52:00
+02:52:01
+02:52:02
+...
+03:51:59
